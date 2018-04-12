@@ -12,32 +12,32 @@ function setCart(c) {
 }
 
 function addToCart(item) {
-  var itemObj = { [item]: Math.floor(Math.random() * 100) + 1 };
+  var itemObj = {[item]: Math.floor(Math.random() * 100) + 1};
   console.log(`${item} has been added to your cart.`);
   cart.push(itemObj);
   return cart;
 }
 
 // More grammatically correct addToCart()
-/* function addToCart(item) {
-  var capItem = item.charAt(0).toUpperCase() + item.slice(1);
-  var itemObject = {[item]: Math.ceil(Math.random() * 100)};
-  console.log(capItem.slice(-1) === 's' ? `${capItem} have been added to your cart.` : `${capItem} has been added to your cart.`);
-  cart.push(itemObject);
-  return cart;
-}
-*/
+//
+// function addToCart(item) {
+//   var capItem = item.slice(0, 1).toUpperCase() + item.slice(1);
+//   var itemObject = {[item]: Math.floor(Math.random() * 100) + 1};
+//   var verb = capItem.slice(-1).toLowerCase() === 's' ? 'have' : 'has';
+//   console.log(`${capItem} ${verb} been added to your cart.`);
+//   cart.push(itemObject);
+//   return cart;
+// }
 
-var whatYouHave = "";
 
 function viewCart() {
-  var itemArr = [];
-
+  var whatYouHave = "";
   if (cart.length < 1) console.log('Your shopping cart is empty.');
 
-  cart.forEach((thing, index) => {
-    itemArr.push(`${Object.keys(cart[index])} at \$${Object.values(cart[index])}`);
+  var itemArr = cart.map(itemObj => {
+    return `${Object.keys(itemObj)} at \$${Object.values(itemObj)}`;
   });
+  console.log('itemArr', itemArr)
 
   var lastItem = itemArr.length - 1;
   itemArr[lastItem] += '.';
@@ -55,14 +55,8 @@ function viewCart() {
 }
 
 function total() {
-  // var sum = 0;
   return [].concat.apply([], cart.map((obj) => Object.values(obj)))
     .reduce((total, current) => total += current);
-  // cart.map(obj => Object.values(obj)).concat.apply().;
-  // for (var i = 0; i < cart.length; i++) {
-    // sum += parseInt(Object.values(cart[i]));
-  // }
-  // return sum;
 }
 
 function removeFromCart(item) {
