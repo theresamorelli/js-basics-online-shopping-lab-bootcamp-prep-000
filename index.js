@@ -31,7 +31,7 @@ function addToCart(item) {
 
 
 function viewCart() {
-  var whatYouHave = "";
+  var whatYouHave;
   if (cart.length < 1) console.log('Your shopping cart is empty.');
 
   var itemArr = cart.map(itemObj => {
