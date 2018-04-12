@@ -31,7 +31,7 @@ function addToCart(item) {
 
 
 function viewCart() {
-  var whatYouHave;
+  // var whatYouHave;
   if (cart.length < 1) console.log('Your shopping cart is empty.');
 
   var itemArr = cart.map(itemObj => {
@@ -46,7 +46,7 @@ function viewCart() {
     itemArr[lastItem] = 'and ' + itemArr[lastItem];
   }
   if (cart.length <= 2) {
-    whatYouHave = itemArr.join(' ');
+    var whatYouHave = itemArr.join(' ');
   } else {
     whatYouHave = itemArr.join(', ');
   }
