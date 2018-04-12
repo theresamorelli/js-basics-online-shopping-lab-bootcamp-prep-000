@@ -31,14 +31,10 @@ function addToCart(item) {
 
 
 function viewCart() {
-  // var whatYouHave;
   if (cart.length < 1) console.log('Your shopping cart is empty.');
-
   var itemArr = cart.map(itemObj => {
     return `${Object.keys(itemObj)} at \$${Object.values(itemObj)}`;
   });
-  console.log('itemArr', itemArr)
-
   var lastItem = itemArr.length - 1;
   itemArr[lastItem] += '.';
 
